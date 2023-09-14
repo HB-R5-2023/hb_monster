@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!
+{% endblock %}
+
+{% block body %}
+	<h1>HB Monster</h1>
+
+	<div>
+		<h2>Articles</h2>
+		{% for offer in offers %}
+			<h3>{{ offer.title }}</h3>
+		{% else %}
+			<p>Aucune offre trouvée</p>
+		{% endfor %}
+	</div>
+{% endblock %}
