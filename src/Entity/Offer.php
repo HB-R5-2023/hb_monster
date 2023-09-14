@@ -9,73 +9,75 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OfferRepository::class)]
 class Offer
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+  public const CONTRACT_TYPES = ["CDI", "CDD", "Intérim"];
 
-    #[ORM\Column(length: 255)]
-    private ?string $title = null;
+  #[ORM\Id]
+  #[ORM\GeneratedValue]
+  #[ORM\Column]
+  private ?int $id = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $content = null;
+  #[ORM\Column(length: 255)]
+  private ?string $title = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $publicationDate = null;
+  #[ORM\Column(type: Types::TEXT)]
+  private ?string $content = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $contractType = null;
+  #[ORM\Column(type: Types::DATE_MUTABLE)]
+  private ?\DateTimeInterface $publicationDate = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+  #[ORM\Column(length: 255)]
+  private ?string $contractType = null;
 
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
+  public function getId(): ?int
+  {
+    return $this->id;
+  }
 
-    public function setTitle(string $title): static
-    {
-        $this->title = $title;
+  public function getTitle(): ?string
+  {
+    return $this->title;
+  }
 
-        return $this;
-    }
+  public function setTitle(string $title): static
+  {
+    $this->title = $title;
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
+    return $this;
+  }
 
-    public function setContent(string $content): static
-    {
-        $this->content = $content;
+  public function getContent(): ?string
+  {
+    return $this->content;
+  }
 
-        return $this;
-    }
+  public function setContent(string $content): static
+  {
+    $this->content = $content;
 
-    public function getPublicationDate(): ?\DateTimeInterface
-    {
-        return $this->publicationDate;
-    }
+    return $this;
+  }
 
-    public function setPublicationDate(\DateTimeInterface $publicationDate): static
-    {
-        $this->publicationDate = $publicationDate;
+  public function getPublicationDate(): ?\DateTimeInterface
+  {
+    return $this->publicationDate;
+  }
 
-        return $this;
-    }
+  public function setPublicationDate(\DateTimeInterface $publicationDate): static
+  {
+    $this->publicationDate = $publicationDate;
 
-    public function getContractType(): ?string
-    {
-        return $this->contractType;
-    }
+    return $this;
+  }
 
-    public function setContractType(string $contractType): static
-    {
-        $this->contractType = $contractType;
+  public function getContractType(): ?string
+  {
+    return $this->contractType;
+  }
 
-        return $this;
-    }
+  public function setContractType(string $contractType): static
+  {
+    $this->contractType = $contractType;
+
+    return $this;
+  }
 }
