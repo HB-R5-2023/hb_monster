@@ -9,8 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OfferRepository::class)]
 class Offer
 {
-  public const CONTRACT_TYPES = ["CDI", "CDD", "Intérim"];
-
   #[ORM\Id]
   #[ORM\GeneratedValue]
   #[ORM\Column]
@@ -25,8 +23,9 @@ class Offer
   #[ORM\Column(type: Types::DATE_MUTABLE)]
   private ?\DateTimeInterface $publicationDate = null;
 
-  #[ORM\Column(length: 255)]
-  private ?string $contractType = null;
+  #[ORM\ManyToOne(inversedBy: 'offers')]
+  #[ORM\JoinColumn(nullable: false)]
+  private ?ContractType $contractType = null;
 
   public function getId(): ?int
   {
@@ -69,12 +68,12 @@ class Offer
     return $this;
   }
 
-  public function getContractType(): ?string
+  public function getContractType(): ?ContractType
   {
     return $this->contractType;
   }
 
-  public function setContractType(string $contractType): static
+  public function setContractType(?ContractType $contractType): static
   {
     $this->contractType = $contractType;
 
