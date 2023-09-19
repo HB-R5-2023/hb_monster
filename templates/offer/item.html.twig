@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OfferController!
+{% endblock %}
+
+{% block body %}
+	<h1>{{ offer.title }}</h1>
+
+	<h2>{{ offer.contractType.name }}</h2>
+
+	<h3>{{ offer.publicationDate|date("d/m/y") }}</h3>
+
+	<p>{{ offer.content }}</p>
+{% endblock %}
