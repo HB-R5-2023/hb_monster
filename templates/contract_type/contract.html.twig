@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contract type
+{% endblock %}
+
+{% block body %}
+	<h2>Liste des
+		{{ contract_type.name }}</h2>
+
+	{% for offer in contract_type.offers %}
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{ offer.title }}</h5>
+				<h6 class="card-subtitle mb-2 text-body-secondary">{{ offer.contractType.name }}</h6>
+				<a href="{{ path('offer_item', { "id": offer.id }) }}" class="card-link">Voir l'offre</a>
+			</div>
+		</div>
+	{% else %}
+		Aucune offre disponible
+	{% endfor %}
+{% endblock %}
