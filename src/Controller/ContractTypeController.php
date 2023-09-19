@@ -20,9 +20,12 @@ class ContractTypeController extends AbstractController
     ]);
   }
 
-  #[Route('/contract/types/{name}', name: 'contract_type_item')]
-  public function item(ContractType $contractType): Response
+  #[Route('/contract/types/{typeName}', name: 'contract_type_item')]
+  public function item(ContractTypeRepository $contractTypeRepository, string $typeName): Response
   {
+    $contractType = $contractTypeRepository->findOneBy(['name' => $typeName]);
+    // $contractType = $contractTypeRepository->findOneByName($typeName);
+
     return $this->render('contract_type/contract.html.twig', [
       'contract_type' => $contractType
     ]);
