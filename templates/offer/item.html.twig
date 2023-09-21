@@ -11,4 +11,8 @@
 	<h3>{{ offer.publicationDate|date("d/m/y") }}</h3>
 
 	<p>{{ offer.content }}</p>
+
+	<div>
+		<a href="{{ path('offer_apply', { 'id': offer.id }) }}" class="btn btn-primary">Postuler</a>
+	</div>
 {% endblock %}

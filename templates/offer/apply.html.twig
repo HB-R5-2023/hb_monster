@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidature
+{% endblock %}
+
+{% block body %}
+	<h1>Candidature -
+		{{ offer.title }}</h1>
+
+	{{ form(applicationForm) }}{% endblock %}
